@@ -10,4 +10,9 @@ class Feature < ApplicationRecord
       end
     }.compact.reverse.join(' ')
   end
+
+  def set_team(teamName)
+    teamName.match(/.+?(?=-|_)/)
+  end
+
 end
