@@ -15,8 +15,8 @@ class Feature < ApplicationRecord
   end
 
   def set_team
-    team_name = name.match(/.+?(?=-|_)/)
-    self.team_id = Team.where(code: team_name).id
+    team_name = name.match(/.+?(?=-|_)/).to_s
+    self.team_id = Team.find_by(code: team_name).id
   end
 
   def remove_previous
