@@ -1,5 +1,6 @@
 ul.collection.with-header.card
   li.collection-header
+    = image_tag("https://s3-eu-west-1.amazonaws.com/frikandelenstein/teams/#{team.code}.png", height: "100")
     h4= team.name
   - team.features.each do |feature|
     li.collection-item
