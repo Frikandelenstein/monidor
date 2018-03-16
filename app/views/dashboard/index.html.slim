@@ -1,4 +1,4 @@
 .row
-  .col.s6
-    - @teams.each do |team|
+  - @teams.each do |team|
+    .col.s6
       = render partial: "card", locals: { team: team }
