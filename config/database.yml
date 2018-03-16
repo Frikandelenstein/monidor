@@ -24,3 +24,6 @@ test:
 production:
   <<: *default
   database: monidor
+  username: Frikandelenstein
+  password: q1w2e3r4
+  host: http://aa1o2z6cm78s8lg.czduswieo6we.eu-west-1.rds.amazonaws.com:5432/
