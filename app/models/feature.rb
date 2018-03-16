@@ -13,15 +13,13 @@ class Feature < ApplicationRecord
     }.compact.reverse.join(' ')
   end
 
-<<<<<<< HEAD
   def set_team(teamName)
-    teamName.match(/.+?(?=-|_)/)
+    teamName.match(/^[^-|_]*/)
   end
 
-=======
   def remove_previous
     previous = Feature.where(name: name)
     previous.delete_all
   end
->>>>>>> 7fb40d7eb978604cc866786e2d4ed2bdb2128dcb
+
 end
