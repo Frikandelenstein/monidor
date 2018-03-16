@@ -16,6 +16,7 @@ class Feature < ApplicationRecord
 
   def set_team
     team_name = name.match(/.+?(?=-|_)/).to_s
+    team_name = "CUOA" if team_name == "COB"
     self.team_id = Team.find_by(code: team_name).id
   end
 
