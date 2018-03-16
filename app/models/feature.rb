@@ -21,7 +21,7 @@ class Feature < ApplicationRecord
   end
 
   def remove_previous
-    previous = Feature.where(name: name)
+    previous = Feature.where(name: name, platform: platform)
     previous.delete_all
   end
 end
