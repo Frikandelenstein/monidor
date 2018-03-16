@@ -2,7 +2,7 @@ h1 Frikandelenstein
 
 - @teams.each do |team|
   h2= team.name
-  = image_tag("https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Lizard_namely_Oriental_Garden_Lizard.jpg/220px-Lizard_namely_Oriental_Garden_Lizard.jpg")
+  = image_tag("https://s3-eu-west-1.amazonaws.com/frikandelenstein/teams/#{team.code}.png")
   - team.features.each do |feature|
     h3= feature.name
     p= feature.humanize
