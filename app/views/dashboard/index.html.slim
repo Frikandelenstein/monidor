@@ -11,3 +11,8 @@ ul.collapsible data-collapsible="accordion"
           - team.features.each do |feature|
             h3= feature.name
             p= feature.humanize
+
+javascript:
+  $(document).ready(function(){
+   $('.collapsible').collapsible();
+  });
