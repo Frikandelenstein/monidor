@@ -1,9 +1,16 @@
 ul.collection.with-header.card
   li.collection-header
-    = image_tag("https://s3-eu-west-1.amazonaws.com/frikandelenstein/teams/#{team.code}.png", height: "100")
+    .row
+      .col.s2
+        = image_tag("https://s3-eu-west-1.amazonaws.com/frikandelenstein/teams/#{team.code}.png", height: "100", class: "responsive-img")
     h4= team.name
-  - team.features.each do |feature|
-    li.collection-item
-      h5= feature.name
-      span.badge= feature.platform
-      p= feature.humanize
+  - if team.features.count == 0
+    .center
+      = image_tag("https://media.giphy.com/media/JfDNFU1qOZna/giphy.gif", class: "responsive-img")
+
+  - else
+    - team.features.each do |feature|
+      li.collection-item
+        h5= feature.name
+        span.badge= feature.platform
+        p= feature.humanize
