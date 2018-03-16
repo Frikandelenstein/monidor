@@ -1,0 +1,19 @@
+.card.purple
+  .card-image
+    = image_tag("https://s3-eu-west-1.amazonaws.com/frikandelenstein/teams/#{team.code}.png", height: "100")
+    span class="card-title"= team.name
+  .card-tabs
+    ul.tabs.tabs-fixed-width
+      li class="tab"
+        a href="#ios" iOS
+      li.tab
+        a href="#android" Android
+  .card-content.grey.lighten-4
+    #ios
+      - team.features.where(platform: "ios").each do |feature|
+        h4= feature.name
+        p= feature.humanize
+    #android
+      - team.features.where(platform: "android").each do |feature|
+        h4= feature.name
+        p= feature.humanize
