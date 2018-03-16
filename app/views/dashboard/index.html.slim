@@ -8,9 +8,12 @@
             team.name
           .collapsible-body
             span
-              - team.features.each do |feature|
-                h3= feature.name
-                p= feature.humanize
+              - grouped_features = team.features.group_by(&:platform)
+              - grouped_features.each do |platform, features|
+                h3= platform
+                - features.each do |feature|
+                  h4= feature.name
+                  p= feature.humanize
 
 javascript:
   $(document).ready(function(){
