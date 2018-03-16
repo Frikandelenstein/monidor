@@ -1,21 +1,19 @@
 .card
   .card-image
-    img src="images/sample-1.jpg"
-    span class="card-title" Card Title
-  .card-content
-    p
-      I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.
-
+    = image_tag("https://s3-eu-west-1.amazonaws.com/frikandelenstein/teams/#{team.code}.png", height: "100")
+    span class="card-title"= team.name
   .card-tabs
     ul.tabs.tabs-fixed-width
       li class="tab"
-        a href="#test4" Test 1
+        a href="#ios" iOS
       li.tab
-        a class="active" href="#test5" Test 2
-      li.tab
-        a href="#test6" Test 3
-
+        a href="#android" Android
   .card-content.grey.lighten-4
-    #test4 Test 1
-    #test5 Test 2
-    #test6 Test 3
+    #ios
+      - team.features.where(platform: "ios").each do |feature|
+        h4= feature.name
+        p= feature.humanize
+    #android
+      - team.features.where(platform: "android").each do |feature|
+        h4= feature.name
+        p= feature.humanize

@@ -1,22 +1,4 @@
-= render "card"
 .row
   .col.s12
-    ul.collapsible.popout data-collapsible="accordion"
-      - @teams.each do |team|
-        li
-          .collapsible-header
-            = image_tag("https://s3-eu-west-1.amazonaws.com/frikandelenstein/teams/#{team.code}.png", height: "100")
-            team.name
-          .collapsible-body
-            span
-              - grouped_features = team.features.group_by(&:platform)
-              - grouped_features.each do |platform, features|
-                h3= platform
-                - features.each do |feature|
-                  h4= feature.name
-                  p= feature.humanize
-
-javascript:
-  $(document).ready(function(){
-   $('.collapsible').collapsible();
-  });
+    - @teams.each do |team|
+      = render partial: "card", locals: { team: team }
