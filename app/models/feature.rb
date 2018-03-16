@@ -1,6 +1,8 @@
 class Feature < ApplicationRecord
   belongs_to :team, optional: true
 
+  before_save :remove_previous
+
   def humanize
     durr = duration
     [[60, :seconds], [60, :minutes], [24, :hours], [1000, :days]].map{ |count, name|
@@ -9,5 +11,10 @@ class Feature < ApplicationRecord
         "#{n.to_i} #{name}"
       end
     }.compact.reverse.join(' ')
+  end
+
+  def remove_previous
+    previous = Feature.where(name: name)
+    previous.delete_all
   end
 end
