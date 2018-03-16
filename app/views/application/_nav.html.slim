@@ -1,10 +1,11 @@
 nav
   .nav-wrapper
-    a href="#" class="brand-logo" Logo
-    ul id="nav-mobile" class="right hide-on-med-and-down"
-      li
-        a href="sass.html" Sass
-      li
-        a href="badges.html" Components
-      li
-        a href="collapsible.html" JavaScript
+    .col.s12
+      = link_to root_path, class: "brand-logo" do
+        = image_tag "https://www.mora.be/sites/mora-be/files/styles/snack/public/images/14D1D34D-E132-4115-95B3-46D40339835D.jpg?itok=7uUMbgeP", class: "logo-img", size: "60x60"
+
+      ul.right.hide-on-med-and-down
+        li
+          = link_to "Teams", teams_path
+        li
+          = link_to "Features", features_path
